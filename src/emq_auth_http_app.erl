@@ -31,7 +31,7 @@
 %%--------------------------------------------------------------------
 
 start(_StartType, _StartArgs) ->
-    with_env(auth_req, fun reg_authmod/1),
+    %% with_env(auth_req, fun reg_authmod/1),
     with_env(acl_req,  fun reg_aclmod/1),
     emq_auth_http_config:register(),
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
@@ -45,7 +45,7 @@ reg_aclmod(AclReq) ->
 
 stop(_State) ->
     emqttd_access_control:unregister_mod(acl, emq_acl_http),
-    emqttd_access_control:unregister_mod(auth, emq_auth_http),
+    %% emqttd_access_control:unregister_mod(auth, emq_auth_http),
     emq_auth_http_config:unregister().
 
 %%--------------------------------------------------------------------

@@ -96,12 +96,6 @@ format([{Key, Value} | Params], Acc) ->
     format(Params, Acc ++ lists:concat([Key, "=", Value, ","])).
 
 keys() ->
-    ["auth.http.auth_req",
-     "auth.http.auth_req.method",
-     "auth.http.auth_req.params",
-     "auth.http.super_req",
-     "auth.http.super_req.method",
-     "auth.http.super_req.params",
-     "auth.http.acl_req",
+     ["auth.http.acl_req",
      "auth.http.acl_req.method",
      "auth.http.acl_req.params"].
